@@ -64,6 +64,9 @@ def main():
                 show_transaction_history(AuthInstance.api_key, active_user["tokens"])
             elif choice == "6":
                 family_code = input("Enter family code (or '99' to cancel): ")
+                if family_code == "99":
+                    continue
+                get_packages_by_family(family_code)
             elif choice == "7":
                 family_code = input("Enter family code (or '99' to cancel): ")
                 if family_code == "99":
