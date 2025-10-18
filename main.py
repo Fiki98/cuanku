@@ -16,10 +16,16 @@ from app.menus.purchase import purchase_by_family, purchase_loop
 from app.util import save_api_key
 from app.menus.family_bookmark import show_family_bookmark_menu
 
-def show_main_menu(active_user):
+WIDTH = 55
+
+def show_main_menu(profile):
     clear_screen()
-    print(f"Active Number: {active_user['number']}")
-    print("-------------------------------------------------------")
+    print("=" * WIDTH)
+    expired_at_dt = datetime.fromtimestamp(profile["balance_expired_at"]).strftime("%Y-%m-%d")
+    print(f"Nomor: {profile['number']} | Type: {profile['subscription_type']}".center(WIDTH))
+    print(f"Pulsa: Rp {profile['balance']} | Aktif sampai: {expired_at_dt}".center(WIDTH))
+    print(f"{profile['point_info']}".center(WIDTH))
+    print("=" * WIDTH)
     print("Menu:")
     print("1. Login/Ganti akun")
     print("2. Lihat Paket Saya")
