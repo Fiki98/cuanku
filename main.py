@@ -40,7 +40,6 @@ def show_main_menu(number, balance, balance_expired_at):
     print("8. Mode Custom (family code dan nomer order)")
     print("-------------------------------------------------------")
     print("9. Bookmark Family Code")
-    print("10. Ganti API Key")
     print("99. Tutup aplikasi")
     print("-------------------------------------------------------")
 
@@ -102,15 +101,6 @@ def main():
                         break
             elif choice == "9":
                 show_family_bookmark_menu()
-            elif choice == "10":
-                new_api_key = input("Masukkan API key baru: ").strip()
-                if new_api_key:
-                    save_api_key(new_api_key)
-                    AuthInstance.api_key = new_api_key
-                    print("API key berhasil diperbarui.")
-                else:
-                    print("API key tidak boleh kosong.")
-                pause()
             elif choice == "99":
                 print("Exiting the application.")
                 sys.exit(0)
